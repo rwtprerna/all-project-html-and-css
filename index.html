@@ -3,111 +3,593 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>webpage</title>
-    <style>
-        *{
-            margin: 0px;
-            padding: 0px;
-            font-family: sans-serif;
-        }
-        .hero{
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            background: #eff4fd;
-        }
-        nav{
-            display: flex;
-            width: 84%;
-            margin: auto;
-            padding: 20px 0;
-            justify-content: space-between;
-        }
-        nav ul li{
-            display: inline-block;
-            list-style: none;
-            margin: 10px 20px;
-        }
-        nav ul li a{
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-        }
-        nav ul li a:hover{
-            color: red;
-        }
-        .detel{
-            margin-left: 8%;
-            margin-top: 13%;
-        }
-        .detel h1{
-            font-size: 50px;
-            color: #212121;
-            margin-bottom: 20px;
-        }
-        span{
-            color: orange;
-        }
-        .detel p{
-            color: #555;
-            line-height: 20px;
-        }
-        .detel a{
-            background: #212121;
-            padding: 10px 18px;
-            text-decoration: none;
-            font-weight: bold;
-            color: white;
-            display: inline-block;
-            margin: 30px 0;
-            border-radius: 5px;
-        }
-        .images{
-            width: 45%;
-            height: 80%;
-            position: absolute;
-            bottom: 0;
-            right: 100px;
-        }
-        .images img{
-            height: 100%;
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translate(-50%);
-            transition: bottom 1s left 1s;
-        }
-        .images:hover .shape{
-            bottom: 40px;
-        }
-        .images:hover .boy{
-            left: 45%;
-        }
-    </style>
+    <title>The mountain view resort</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
 </head>
 <body>
-        <div class="hero">
-            <nav>
-                <img src="full-stack-developer.jpg" class="logo">
-                <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">VIEW</a></li>
-                    <li><a href="#">SERVICES</a></li>
-                    <li><a href="#">CONTACT US</a></li>
-                </ul>
-            </nav>
-            <div class="detel">
-                <h1>I am Prerna <span>Rawat</span></h1>
-                <p>This is my official website to showes all
-                    <br>details and work exiprins web development
-                </p>
-                <a href="#">DOWNLOAD</a>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: 'poppins', sans-serif;
+        }
+
+        h1,h2 {
+            font-family: sans-serif;
+            font-size: 400;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        li{
+            list-style: none;
+        }
+
+        .flex{
+            display: flex;
+        }
+
+        .flex_space{
+            display: flex;
+            justify-content: space-between;
+        }
+        button{
+            border: none;
+            background: none;
+            outline: none;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        .primary-btn{
+            padding: 10px 40px;
+            background: #7fc142;
+            font-weight: bold;
+            color: white;
+        }
+
+        .secondary-btn{
+            padding: 15px 40px;
+            background: none;
+            border: 2px solid white;
+            font-weight: bold;
+            color: white;
+        }
+
+        .container {
+            max-width: 85%;
+            margin: auto;
+        }
+
+        /* ----------header----------- */
+        /* ----------home----------- */
+        .home {
+            height: 100vh;
+            color: #fff;
+        }
+        .home .text {
+            position: absolute;
+            top: 35%;
+            left: 5%;
+        }
+        .home .text h1{
+            font-size: 80px;
+            font-family: serif;
+            font-weight: 400;
+        }
+        .home p {
+            margin: 20px 0;
+        }
+        .home button {
+            margin-right: 20px;
+        }
+        .owl-nav .owl-prev,
+        .owl-nav .owl-next {
+            position: absolute;
+            top: 40%;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.5)  !important; 
+            color: #fff;
+        }
+
+        .owl-nav .owl-prev {
+            left: 0;
+        }
+        .owl-nav .owl-next {
+            right: 0;
+        }
+        /* ----------home----------- */
+        /* ----------book----------- */
+        grid{
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-gap:20px
+        }
+        input{
+            outline: none;
+            border: none;
+            width: 100%;
+        }
+        .book {
+            padding: 300px 50px 20px;
+            background: #282834;
+            color: #fff;
+        }
+        h1 {
+            font-family: serif;
+        }
+        .book h1 {
+            font-family: serif;
+            font-size: 38px;
+        }
+        .book h1 span {
+            color: #7fc142;
+        }
+        .book input {
+            padding: 20px;
+        }
+        .book input:nth-last-child(1){
+            background: #7fc142;
+            color: #fff;
+        }
+        /* ----------book----------- */
+        /* ----------about----------- */
+        .left, .right  {
+            width: 50%;
+            padding: 30px;
+        }
+        .top {
+            margin-top: 80px;
+        }
+        .mtop {
+            margin-top: 40px;
+        }
+        .heading h1 {
+            font-size: 100px;
+            font-weight: 500;
+            opacity: 0.1;
+            font-family: serif;
+            position: absolute;
+            top: -30px;
+        }
+        .heading h2 {
+           margin: 30px 0;
+           font-size: 45px;
+           font-family: serif;
+           font-weight: 400;
+        }
+        .about .heading h1 {
+            top: 35px;
+        }
+        .about {
+            position: relative;
+
+        }
+        .about .left {
+            font-size: 15px;
+        }
+        .about button {
+            margin: 30px 0;
+        }
+        /* ----------about----------- */
+        /* ----------rooms----------- */
+        .rooms {
+            position: relative;
+        }
+        .rooms .text {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-top: none;
+            padding: 30px;
+        }
+        .rooms i {
+            font-size: 12px;
+            color: #fbb234;
+            margin: 15px 0;
+            margin-right: 5px;
+        }
+        .rooms p{
+            margin: 20px 0;
+            opacity: 0.7;
+        }
+        .rooms h3{
+            font-size: 30px;
+            line-height: 20px;
+            margin-left: 20px;
+            font-weight: 500;
+            color: #7fc142;
+        }
+        .image {
+            display: flex;
+            flex-direction: row;
+        }
+        .img1 {
+            height: 30% ;
+            width : 30%;
+            margin-top: 10px;
+            border: 2px solid black;
+            border-radius: 2%;
+        }
+        .img2 {
+            height: 30% ;
+            width : 30%;
+            margin: 10px 20px;
+            border: 2px solid black; 
+            border-radius: 2%;
+            
+        }
+        .img3 {
+            margin: 10px 10px;
+            border: 2px solid black;
+            border-radius: 2%;
+        }
+        .img4 {
+            margin: 10px;
+            border: 2px solid black;
+            border-radius: 2%;
+        }
+
+        /* ----------rooms----------- */
+        /* ----------services----------- */
+        .services {
+            position: relative;
+        }
+        .grid2 {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-gap: 30px;
+        }
+        .services .left {
+            padding: 30px 0;
+        }
+        .services .box {
+            border: 2 px solid rgba(0, 0, 0, 0.5);
+            text-align: center;
+            transition: 0.5s;
+            padding: 20px;
+        }
+        .services .box .text {
+            padding: 30px 0;
+            border: 1px dashed #fff;
+        }
+        .services h3 {
+            font-size: 20px;
+            font-weight: 400;
+            margin-top: 10px;
+            transition: 0.5s;
+        }
+        
+        /* ----------services----------- */
+        /* ----------footer----------- */
+        footer {
+            background: #282834;
+            color: #b6b7b9;
+            padding: 10% 0 5% 0;
+        }
+        footer .grid {
+            grid-template-columns: 6fr 3fr 3fr;
+        }
+        footer .icon i {
+            margin: 30px 30px 30px 0;
+            color: #b6b7b9;
+        }
+        footer h2 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        footer li {
+            margin-bottom: 20px;
+        }
+        footer i {
+            color: #7fc142;
+            margin: 20px 0;
+            margin-right: 20px;
+        }
+        footer label {
+            margin: 20px 0;
+        }
+        .location {
+            margin: 20px 0;
+        }
+        .phone {
+            margin: 30px 0;
+        }
+        .mail {
+            margin: 50px 0;
+        }
+        .legal{
+            padding: 15px 0;
+            background: #282834;
+            color: #b6b7b9;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+
+
+
+
+
+        /* ----------footer----------- */
+
+
+        @media only screen and (max-width:768px){
+            .home{
+                color: #fff;
+                height: 50vh;
+            }
+            .home img{
+                width:100%;
+                height:50vh;
+            }
+            .left, .right {
+                width: 100%;
+            }
+            .book h1{
+                margin-bottom: 20px;
+            }
+            .container .flex,
+            .book .flex_space{
+                flex-direction: column;
+            }
+            .book .grid{
+                grid-template-columns: repeat(3,1fr);
+            }
+            .counter .grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+        }
+
+
+
+
+
+        header{
+            height: 10vh;
+            line-height: 10vh;
+            padding: 0 20px;
+        }
+        header img {
+            margin: 20px 0;
+        }
+        header ul {
+            display: inline-block;
+        }
+        header ul li {
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        header ul li a {
+            color: #000;
+            margin: 0 10px;
+            transition: 0.5s;
+        }
+
+        header ul li a:hover {
+            color: #7fc142;
+        }
+        header i {
+            margin: 0 20px;
+        }
+        header button {
+            padding: 10px 40px;
+        }
+        header .navlinks span {
+            display: none;
+        }
+        /* ----------header----------- */
+
+
+    </style>
+
+    <header>
+        <div class="content flex_space">
+            <div class="logo">
+                <img src="stock-vector-mountain-view-logo-illustration-for-background-and-logo-1719915253.jpg" height="100" width="100" alt="">
             </div>
-            <div class="images">
-                <img src="design-an-attractive-background-for-your-website.png" class="shape">
-                <img src="portrait-young-professional-man-suit-258742.jpg" class="boy">
+            <div class="navlinks">
+                <ul id="menulist">
+                    <li><a href="#home">home</a></li>
+                    <li><a href="#about">about</a></li>
+                    <li><a href="#rooms">rooms</a></li>
+                    <li><a href="#pages">pages</a></li>
+                    <li><a href="#contact">contact</a></li>
+                    <li><button class="primary-btn">BOOK NOW </button></li>
+             </ul>
+            
+            </div>
+        </div>    
+    </header>
+
+    <script>
+        var menulist = document.getElementById('menulist');
+        menulist.style.maxHeight = "0px";
+
+    </script>
+
+
+    <section class="home">
+        <div class="content">
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <div class="item">
+                        <div class="item">
+                        </div>
+                        </div>
+                    <img src="yamunotri temple.jpg" alt="">
+                    <div class="text">
+                        <h1>JAI MAA YAMUNA</h1>
+                        <p>Yamunotri, also Jamnotri, is the source of the Yamuna River and the seat of the Goddess<br> Yamuna in Hinduism.Yamunotri is famous among tourist as Temple, Char Dham, Trekking, Scenic Beauty,<br> Pilgrimage. Yamunotri is recommended destination for Family and Kids, Foreigners,<br> Groups, Solo. Yamunotri is popular destination for following activities/ interests - Char Dham Yatra, Pilgrimage, Temples, Trekking.
+                        </p>
+                        <div class="flex">
+                            <button class="primary-btn">READ MORE</button>
+                            <button class="secondary-btn">CONTACT</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js" integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:0,
+    nav:true,
+    dots:false,
+    responsive:{
+        0:{
+            items:1
+        },
+        768:{
+            items:1
+        },
+        1000:{
+            items:1
+        }
+    }
+})
+    </script>
+
+
+
+<section class="book">
+    <div class="container flex_space">
+        <div class="text">
+            <h1><span>Book</span> Your Rooms</h1>
+        </div>
+        <div class="form">
+            <form class="grid">
+                <input type="date" placeholder="Araival Date">
+                <input type="date" placeholder="Departure Date">
+                <input type="number" placeholder="Adults">
+                <input type="date" placeholder="Children">
+                <input type="submit" value="CHECK AVAILABILITY">
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<section class="about top">
+    <div class="container flex">
+        <div class="left">
+            <div class="heading">
+                <h1>WELCOME</h1>
+                <h2>The Mountain View</h2>
+            </div>
+            <p>Yamunotri, also Jamnotri, is the source of the Yamuna River and the seat of the Goddess Yamuna in Hinduism.Yamunotri is famous among tourist as Temple, Char Dham, Trekking, Scenic Beauty, Pilgrimage. Yamunotri is recommended destination for Family and Kids, Foreigners, Groups, Solo. Yamunotri is popular destination for following activities/ interests - Char Dham Yatra, Pilgrimage, Temples, Trekking.
+            </p>
+            <button class="primary-btn">ABOUT US</button>
+        </div>
+        <div class="right">
+            <img src="WhatsApp Image 2024-05-19 at 12.27.42_704b857b.jpg" height="100%" width="120%" alt="">
+        </div>
+    </div>
+
+</section>
+
+
+<section class="rooms">
+
+     <div class="container top">
+        <div class="heading">
+            <h1>EXPLORE</h1>
+            <h2>Our Rooms</h2>
+         </div>
+     <div class="image">
+        <img class="img1" src="room1.jpg"  alt="">
+        <img class="img2" src="room2.jpg"  alt="">
+        <img class="img3" src="room3.jpg"  alt="">
+        <img class="img4" src="room0.jpg" alt="">
+    </div>
+</section>
+
+<section class="services top">
+    <div class="container">
+        <div class="heading">
+            <h1>SERVICES</h1>
+            <h2>Our Services</h2>
+        </div>
+    </div>
+
+    <div class="content flex_space">
+        <div class="left grid2">
+            <div class="box">
+                <div class="text">
+                    <img class="img0" src="82bed479344270067e3d2171379949b3.png" height="40%" width="40%" alt="">
+                    <h3>Inhouse Restaurtant</h3>
+                </div>
+            </div>
+            <div class="box">
+                <div class="text">
+                    <img class="img0" src="parking-car-logo-template-design_20029-1037.avif" height="40%" width="40%" alt="">
+                    <h3>Free Parking</h3>
+                </div>
+            </div>
+            <div class="box">
+                <div class="text">
+                    <img class="img0" src="delicious-taste-proffesional-chef-cooking-food-logo-design-186543811.webp" height="40%" width="40%" alt="">
+                    <h3>Delious Food</h3>
+                </div>
+            </div>
+            <div class="box">
+                <div class="text">
+                    <img class="img0" src="bed-logo-and-symbol-hotel-business-logo-vector.jpg" height="40%" width="40%" alt="">
+                    <h3>24 hours Room Services</h3>
+                </div>
             </div>
         </div>
+    </div>
+
+</section>
+
+
+<footer>
+    <div class="container grid">
+        <div class="box">
+            
+            <div class="icon">
+                <i class="facebook"><img src="pngtree-facebook--icon-png-image_3570308.jpg" height="5%" width="5%" alt=""></i>
+                <i class="instagram"><img src="New-Instagram-logo.jpg" height="5%" width="5%" alt=""></i>
+                <i class="twitter"><img src="Twitter-logo-vector-PNG.png" height="5%" width="5%" alt=""></i>
+                <i class="youtube"><img src="New-YouTube-logo.jpg" height="5%" width="5%" alt=""></i>
+            </div>
+        </div>
+
+        <div class="box">
+            <h2>Contact Us</h2>
+            <i class="location"><img src="eps10-blue-pin-point-or-location-solid-icon-for-website-ui-and-mobile-isolated-on-white-background-free-vector.jpg" height="5%" width="5%" alt=""></i>
+            <label>Naugaon Sauli Yamunotri Road Uttarkashi</label>
+            <i class="phone"><img src="phone-icon-1024x1024-bn4mirqi.png" height="5%" width="5%" alt=""></i>
+            <label> 7895882018</label>
+            <i class="mail"><img src="email-icon-vector-3644175.jpg" height="5%" width="5%" alt=""></i>
+            <label> mountain0123view@gamil.com</label>
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+<div class="legal">
+    <p class="container">Copyright (c) 2024 Copyright Holder All rights Reserved.</p>
+</div>
+
+
+
+
 </body>
 </html>
